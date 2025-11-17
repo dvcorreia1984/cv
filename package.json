@@ -2,11 +2,5 @@
   "name": "victor-cv-portfolio",
   "version": "1.0.0",
   "description": "CV Portfolio for Victor Correia",
-  "scripts": {
-    "generate-pdf": "node generate-pdf.js"
-  },
-  "dependencies": {
-    "puppeteer": "^21.0.0"
-  }
 }
 
