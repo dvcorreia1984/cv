@@ -240,6 +240,24 @@
       outline: 2px solid var(--gold-dark);
       outline-offset: 2px;
     }
+    .download-link {
+      display: inline-block;
+      padding: 10px 20px;
+      background: var(--navy);
+      color: var(--white);
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: background 0.3s ease;
+    }
+    .download-link:hover,
+    .download-link:focus {
+      background: var(--gold-dark);
+      color: var(--white);
+      text-decoration: none;
+      outline: 2px solid var(--gold-dark);
+      outline-offset: 2px;
+    }
 
     @media (max-width: 768px) {
       .cv-container {
@@ -414,6 +432,20 @@
           <li><a href="https://lekkerrooibos.co.za" target="_blank" rel="noopener noreferrer" class="project-link">Lekkerrooibos.co.za</a></li>
           <li><a href="https://gkoranjerivier.co.za" target="_blank" rel="noopener noreferrer" class="project-link">gkoranjerivier.co.za</a></li>
         </ul>
+      </div>
+    </div>
+
+    <div class="projects" style="margin-top: 30px;">
+      <h3 class="section-title">Download CV</h3>
+      <div class="exp-desc">
+        <p style="margin-top: 10px;">
+          <a href="cv.pdf" download class="download-link" style="font-size: 1.1em;">
+            📄 Download PDF Version
+          </a>
+        </p>
+        <p style="margin-top: 8px; font-size: 0.9em; color: var(--dark-gray);">
+          Get a printable PDF version of this CV
+        </p>
       </div>
     </div>
 
