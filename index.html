@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Victor Correia - CV</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    :root {
+      --navy: #00264D;
+      --gold: #FFC107;
+      --light-gray: #f5f5f5;
+      --dark-gray: #444;
+      --white: #ffffff;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: var(--light-gray);
+      color: var(--dark-gray);
+      line-height: 1.6;
+      padding: 20px;
+    }
+    .cv-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      background: var(--white);
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+      overflow: hidden;
+      border-radius: 12px;
+    }
+    .sidebar {
+      background: var(--navy);
+      color: var(--white);
+      padding: 30px 25px;
+      width: 35%;
+      float: left;
+      min-height: 100vh;
+    }
+    .main {
+      padding: 30px 35px;
+      width: 65%;
+      float: left;
+    }
+    .photo {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin: 0 auto 20px;
+      border: 6px solid var(--gold);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+    .photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    h1 {
+      font-size: 2.4em;
+      color: var(--white);
+      text-align: center;
+      margin-bottom: 5px;
+    }
+    .subtitle {
+      display: block;
+      font-size: 1em;
+      color: var(--gold);
+      text-align: center;
+      margin-bottom: 25px;
+      font-weight: 500;
+    }
+    .section-title {
+      background: var(--navy);
+      color: var(--white);
+      padding: 10px 15px;
+      border-radius: 25px;
+      font-size: 0.9em;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin: 25px 0 15px;
+      display: inline-block;
+    }
+    .about, .skills-list, .languages, .awards {
+      margin-bottom: 25px;
+    }
+    .about p {
+      font-size: 0.95em;
+      text-align: justify;
+    }
+    .skills-list ul, .languages ul {
+      list-style: none;
+    }
+    .skill-item, .lang-item {
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .skill-name {
+      font-weight: 500;
+      width: 60%;
+    }
+    .progress-bar {
+      width: 35%;
+      height: 8px;
+      background: rgba(255,255,255,0.3);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .progress {
+      height: 100%;
+      background: var(--gold);
+      border-radius: 4px;
+      transition: width 1s ease;
+    }
+    .languages .lang-item {
+      justify-content: flex-start;
+    }
+    .lang-item i {
+      margin-right: 10px;
+      color: var(--gold);
+    }
+    .awards ul {
+      list-style: none;
+    }
+    .awards li {
+      margin-bottom: 12px;
+      display: flex;
+      align-items: flex-start;
+    }
+    .awards li i {
+      color: var(--gold);
+      margin-right: 10px;
+      font-size: 1.1em;
+    }
+
+    /* Main Content */
+    .main h1 {
+      color: var(--navy);
+      font-size: 2.4em;
+      margin-bottom: 5px;
+    }
+    .main .subtitle {
+      color: var(--gold);
+      text-align: left;
+    }
+    .contact {
+      margin-bottom: 25px;
+    }
+    .contact ul {
+      list-style: none;
+    }
+    .contact li {
+      margin-bottom: 8px;
+      font-size: 0.95em;
+    }
+    .contact i {
+      color: var(--gold);
+      margin-right: 8px;
+      width: 16px;
+      text-align: center;
+    }
+    .experience, .education, .certifications, .projects {
+      margin-bottom: 30px;
+    }
+    .exp-item {
+      margin-bottom: 22px;
+    }
+    .exp-year {
+      background: var(--navy);
+      color: var(--white);
+      padding: 3px 10px;
+      border-radius: 15px;
+      font-size: 0.8em;
+      font-weight: 700;
+      display: inline-block;
+      margin-bottom: 5px;
+    }
+    .exp-title {
+      font-weight: 700;
+      color: var(--navy);
+      font-size: 1.1em;
+    }
+    .exp-company {
+      color: var(--gold);
+      font-style: italic;
+      font-size: 0.95em;
+    }
+    .exp-desc {
+      margin-top: 6px;
+      font-size: 0.92em;
+    }
+    .exp-desc ul {
+      margin-top: 5px;
+      padding-left: 18px;
+    }
+    .exp-desc li {
+      margin-bottom: 4px;
+    }
+    .cert-item {
+      margin-bottom: 12px;
+      font-size: 0.95em;
+    }
+    .cert-year {
+      color: var(--gold);
+      font-weight: 500;
+    }
+    .project-link {
+      color: var(--navy);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .project-link:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      .sidebar, .main { width: 100%; float: none; }
+      .sidebar { min-height: auto; padding-bottom: 20px; }
+    }
+    .clearfix::after { content: ""; display: table; clear: both; }
+  </style>
+</head>
+<body>
+
+<div class="cv-container clearfix">
+
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+    <div class="photo">
+      <img src="https://media.licdn.com/dms/image/D4D03AQF8z5i5o8Xz3A/profile-displayphoto-shrink_800_800/0/1673891240990?e=2147483647&v=beta&t=your-photo-url" alt="Victor Correia">
+    </div>
+    <h1>VICTOR CORREIA</h1>
+    <span class="subtitle">Moodle DevOps Specialist | Front-End Developer | e-Learning Architect</span>
+
+    <div class="about">
+      <h3 class="section-title">About Me</h3>
+      <p>Front-end developer and open-source contributor with 12+ years in Moodle ecosystems. Recently open-sourced a production-grade <strong>Moodle 4.0.5 Docker template</strong> with multi-client isolation, HTTPS, automated backups, and SCSS customization. Passionate about scalable e-learning, AI integration, and Linux automation.</p>
+    </div>
+
+    <div class="skills-list">
+      <h3 class="section-title">Skills</h3>
+      <ul>
+        <li class="skill-item"><span class="skill-name">Moodle (Admin/Dev/Theming)</span><div class="progress-bar"><div class="progress" style="width:100%"></div></div></li>
+        <li class="skill-item"><span class="skill-name">Docker & Docker Compose</span><div class="progress-bar"><div class="progress" style="width:90%"></div></div></li>
+        <li class="skill-item"><span class="skill-name">Git, GitHub, Branching</span><div class="progress-bar"><div class="progress" style="width:100%"></div></div></li>
+        <li class="skill-item"><span class="skill-name">JavaScript, React, Tailwind</span><div class="progress-bar"><div class="progress" style="width:80%"></div></div></li>
+        <li class="skill-item"><span class="skill-name">SCSS, Boost-Union, Themes</span><div class="progress-bar"><div class="progress" style="width:95%"></div></div></li>
+        <li class="skill-item"><span class="skill-name">Linux, Bash, Puppeteer</span><div class="progress-bar"><div class="progress" style="width:80%"></div></div></li>
+        <li class="skill-item"><span class="skill-name">Ruby on Rails, PostgreSQL</span><div class="progress-bar"><div class="progress" style="width:60%"></div></div></li>
+        <li class="skill-item"><span class="skill-name">AI Tools (Copilot, Lovable)</span><div class="progress-bar"><div class="progress" style="width:85%"></div></div></li>
+      </ul>
+    </div>
+
+    <div class="languages">
+      <h3 class="section-title">Languages</h3>
+      <ul>
+        <li class="lang-item"><i class="fas fa-circle"></i> Afrikaans <span style="margin-left:auto;">Native</span></li>
+        <li class="lang-item"><i class="fas fa-circle"></i> English <span style="margin-left:auto;">Fluent</span></li>
+        <li class="lang-item"><i class="fas fa-circle"></i> German <span style="margin-left:auto;">Conversational</span></li>
+      </ul>
+    </div>
+
+    <div class="awards">
+      <h3 class="section-title">Awards</h3>
+      <ul>
+        <li><i class="fas fa-trophy"></i> Top Student (2014) – M.Phil in Philosophy, NWU</li>
+        <li><i class="fas fa-trophy"></i> Successful Launch: Kuberskool (2020–2023)</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <div class="main">
+    <h1>VICTOR CORREIA</h1>
+    <span class="subtitle">Moodle DevOps Specialist | Front-End Developer | e-Learning Architect</span>
+
+    <div class="contact">
+      <h3 class="section-title">Contact</h3>
+      <ul>
+        <li><i class="fas fa-phone"></i> +27 82 558 5587</li>
+        <li><i class="fas fa-envelope"></i> victor@onsleer.com</li>
+        <li><i class="fas fa-map-marker-alt"></i> 5 Saffier St, Orania, South Africa</li>
+        <li><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/dvcorreia/" target="_blank" style="color:inherit;text-decoration:none;">linkedin.com/in/dvcorreia</a></li>
+        <li><i class="fab fa-github"></i> <a href="https://github.com/dvcorreia1984" target="_blank" style="color:inherit;text-decoration:none;">github.com/dvcorreia1984</a></li>
+        <li><i class="fab fa-twitter"></i> <a href="https://twitter.com/dvictorcorreia" target="_blank" style="color:inherit;text-decoration:none;">@dvictorcorreia</a></li>
+      </ul>
+    </div>
+
+    <div class="experience">
+      <h3 class="section-title">Experience</h3>
+      
+      <div class="exp-item">
+        <div class="exp-year">2025 – Present</div>
+        <div class="exp-title">Front-End Developer (Contract)</div>
+        <div class="exp-company">eDaktik – Austria</div>
+        <div class="exp-desc">
+          <ul>
+            <li>Custom SCSS overrides in Boost-Union theme to match client branding</li>
+            <li>Docker-based multi-client deployments with HTTPS & backup automation</li>
+            <li>Screenshot automation using Puppeteer</li>
+            <li>AI plugin experiments for Moodle</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-year">2024</div>
+        <div class="exp-title">Front-End Developer</div>
+        <div class="exp-company">TTRO – Moodle Partner, South Africa</div>
+        <div class="exp-desc">
+          <ul>
+            <li>Custom FNB "Fincents" project with JavaScript & Power BI data visualization</li>
+            <li>Moodle system administration, custom reports, client training</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-year">2020 – 2023</div>
+        <div class="exp-title">E-Learning Consultant & Project Lead</div>
+        <div class="exp-company">Kuberskool</div>
+        <div class="exp-desc">
+          <ul>
+            <li>Launched online school from scratch</li>
+            <li>Moodle UX design, course authoring with gamification</li>
+            <li>Professional recording studio setup & video editing</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-year">2023</div>
+        <div class="exp-title">Full-Stack Student</div>
+        <div class="exp-company">Microverse</div>
+        <div class="exp-desc">
+          Mastered Rails, React, Git, and DS&A while building full-stack apps.
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-year">2013 – 2019</div>
+        <div class="exp-title">Moodle Educator & Course Designer</div>
+        <div class="exp-company">Aros & Akademia</div>
+        <div class="exp-desc">
+          <ul>
+            <li>Designed 50+ distance learning courses on Moodle</li>
+            <li>Accredited Assessor & Moderator for Higher Education</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="education">
+      <h3 class="section-title">Education</h3>
+      <div class="exp-item">
+        <div class="exp-year">2013 – 2014</div>
+        <div class="exp-title">M.Phil in Philosophy</div>
+        <div class="exp-company">North-West University</div>
+      </div>
+      <div class="exp-item">
+        <div class="exp-year">2003 – 2008</div>
+        <div class="exp-title">MDiv in Theology</div>
+        <div class="exp-company">North-West University</div>
+      </div>
+    </div>
+
+    <div class="certifications">
+      <h3 class="section-title">Certifications</h3>
+      <div class="cert-item"><span class="cert-year">2025</span> – AI Engineering PC (In Progress) – IBM</div>
+      <div class="cert-item"><span class="cert-year">2024</span> – Moodle Admin & Developer Certification – Moodle Academy</div>
+      <div class="cert-item"><span class="cert-year">2023</span> – JavaScript, React, Ruby on Rails – Microverse</div>
+    </div>
+
+    <div class="projects">
+      <h3 class="section-title">Featured Project</h3>
+      <div class="exp-desc">
+        <strong>Moodle 4.0.5 Docker Template</strong> – <a href="https://github.com/dvcorreia1984/moodle405-template" target="_blank" class="project-link">github.com/dvcorreia1984/moodle405-template</a><br>
+        Production-ready template with multi-client isolation, HTTPS, daily backups, and SCSS theming. Open source.
+      </div>
+    </div>
+
+    <div style="margin-top:40px; font-size:0.8em; color:#777; text-align:center;">
+      Last updated: November 17, 2025 • Designed for web, print, and ATS
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
