@@ -10,17 +10,27 @@
     :root {
       --navy: #00264D;
       --gold: #FFC107;
+      --gold-dark: #B8860B;
+      --gold-accent: #D4AF37;
       --light-gray: #f5f5f5;
       --dark-gray: #444;
       --white: #ffffff;
     }
     * { margin:0; padding:0; box-sizing:border-box; }
+    html, body {
+      height: 100%;
+    }
     body {
       font-family: 'Roboto', sans-serif;
       background: var(--light-gray);
       color: var(--dark-gray);
       line-height: 1.6;
       padding: 20px;
+    }
+    a:focus,
+    button:focus {
+      outline: 2px solid var(--gold-dark);
+      outline-offset: 2px;
     }
     .cv-container {
       max-width: 1000px;
@@ -29,19 +39,20 @@
       box-shadow: 0 0 20px rgba(0,0,0,0.1);
       overflow: hidden;
       border-radius: 12px;
+      min-height: calc(100vh - 40px);
+      display: flex;
     }
     .sidebar {
       background: var(--navy);
       color: var(--white);
       padding: 30px 25px;
       width: 35%;
-      float: left;
-      min-height: 100vh;
+      min-height: 100%;
+      align-self: stretch;
     }
     .main {
       padding: 30px 35px;
       width: 65%;
-      float: left;
     }
     .photo {
       width: 160px;
@@ -144,7 +155,7 @@
       margin-bottom: 5px;
     }
     .main .subtitle {
-      color: var(--gold);
+      color: var(--gold-dark);
       text-align: left;
     }
     .contact {
@@ -157,8 +168,18 @@
       margin-bottom: 8px;
       font-size: 0.95em;
     }
+    .contact a {
+      color: var(--navy);
+      text-decoration: none;
+    }
+    .contact a:hover,
+    .contact a:focus {
+      text-decoration: underline;
+      outline: 2px solid var(--gold-dark);
+      outline-offset: 2px;
+    }
     .contact i {
-      color: var(--gold);
+      color: var(--gold-dark);
       margin-right: 8px;
       width: 16px;
       text-align: center;
@@ -185,7 +206,7 @@
       font-size: 1.1em;
     }
     .exp-company {
-      color: var(--gold);
+      color: var(--gold-dark);
       font-style: italic;
       font-size: 0.95em;
     }
@@ -205,7 +226,7 @@
       font-size: 0.95em;
     }
     .cert-year {
-      color: var(--gold);
+      color: var(--gold-dark);
       font-weight: 500;
     }
     .project-link {
@@ -213,32 +234,37 @@
       text-decoration: none;
       font-weight: 500;
     }
-    .project-link:hover {
+    .project-link:hover,
+    .project-link:focus {
       text-decoration: underline;
+      outline: 2px solid var(--gold-dark);
+      outline-offset: 2px;
     }
 
     @media (max-width: 768px) {
-      .sidebar, .main { width: 100%; float: none; }
-      .sidebar { min-height: auto; padding-bottom: 20px; }
+      .cv-container {
+        flex-direction: column;
+      }
+      .sidebar, .main { width: 100%; }
+      .sidebar { padding-bottom: 20px; }
     }
-    .clearfix::after { content: ""; display: table; clear: both; }
   </style>
 </head>
 <body>
 
-<div class="cv-container clearfix">
+<main class="cv-container">
 
   <!-- SIDEBAR -->
-  <div class="sidebar">
+  <aside class="sidebar">
     <div class="photo">
-      <img src="/victor.png" alt="Victor Correia">
+      <img src="victor.png" alt="Victor Correia - Professional headshot">
     </div>
     <h1>VICTOR CORREIA</h1>
-    <span class="subtitle">Moodle DevOps Specialist | Front-End Developer | e-Learning Architect</span>
+    <span class="subtitle">Creative Web Developer | Moodle Specialist | Automation Expert</span>
 
     <div class="about">
       <h3 class="section-title">About Me</h3>
-      <p>Front-end developer and open-source contributor with 12+ years in Moodle ecosystems. Recently open-sourced a production-grade <strong>Moodle 4.0.5 Docker template</strong> with multi-client isolation, HTTPS, automated backups, and SCSS customization. Passionate about scalable e-learning, AI integration, and Linux automation.</p>
+      <p>Creative and innovative web developer with 12+ years in Moodle ecosystems. Specialized in front-end development, custom SCSS theming, and system administration. Currently learning AI and MCPs (Model Context Protocol), and using automation software like N8N with AI to create unique automations. Passionate about scalable e-learning, AI integration, and Linux automation.</p>
     </div>
 
     <div class="skills-list">
@@ -246,47 +272,50 @@
       <ul>
         <li class="skill-item"><span class="skill-name">Moodle (Admin/Dev/Theming)</span><div class="progress-bar"><div class="progress" style="width:100%"></div></div></li>
         <li class="skill-item"><span class="skill-name">Docker & Docker Compose</span><div class="progress-bar"><div class="progress" style="width:90%"></div></div></li>
-        <li class="skill-item"><span class="skill-name">Git, GitHub, Branching</span><div class="progress-bar"><div class="progress" style="width:100%"></div></div></li>
+        <li class="skill-item"><span class="skill-name">Git, GitHub, GitLab</span><div class="progress-bar"><div class="progress" style="width:100%"></div></div></li>
         <li class="skill-item"><span class="skill-name">JavaScript, React, Tailwind</span><div class="progress-bar"><div class="progress" style="width:80%"></div></div></li>
         <li class="skill-item"><span class="skill-name">SCSS, Boost-Union, Themes</span><div class="progress-bar"><div class="progress" style="width:95%"></div></div></li>
         <li class="skill-item"><span class="skill-name">Linux, Bash, Puppeteer</span><div class="progress-bar"><div class="progress" style="width:80%"></div></div></li>
         <li class="skill-item"><span class="skill-name">Ruby on Rails, PostgreSQL</span><div class="progress-bar"><div class="progress" style="width:60%"></div></div></li>
-        <li class="skill-item"><span class="skill-name">AI Tools (Copilot, Lovable)</span><div class="progress-bar"><div class="progress" style="width:85%"></div></div></li>
+        <li class="skill-item"><span class="skill-name">AI Tools (Copilot, Lovable, MCPs)</span><div class="progress-bar"><div class="progress" style="width:85%"></div></div></li>
+        <li class="skill-item"><span class="skill-name">N8N Automation & Workflows</span><div class="progress-bar"><div class="progress" style="width:75%"></div></div></li>
+        <li class="skill-item"><span class="skill-name">Machine Learning (Python, Keras)</span><div class="progress-bar"><div class="progress" style="width:70%"></div></div></li>
+        <li class="skill-item"><span class="skill-name">Markdown & Obsidian Documentation</span><div class="progress-bar"><div class="progress" style="width:85%"></div></div></li>
       </ul>
     </div>
 
     <div class="languages">
       <h3 class="section-title">Languages</h3>
       <ul>
-        <li class="lang-item"><i class="fas fa-circle"></i> Afrikaans <span style="margin-left:auto;">Native</span></li>
-        <li class="lang-item"><i class="fas fa-circle"></i> English <span style="margin-left:auto;">Fluent</span></li>
-        <li class="lang-item"><i class="fas fa-circle"></i> German <span style="margin-left:auto;">Conversational</span></li>
+        <li class="lang-item"><i class="fas fa-circle" aria-hidden="true"></i> Afrikaans <span style="margin-left:auto;">Native</span></li>
+        <li class="lang-item"><i class="fas fa-circle" aria-hidden="true"></i> English <span style="margin-left:auto;">Fluent</span></li>
+        <li class="lang-item"><i class="fas fa-circle" aria-hidden="true"></i> German <span style="margin-left:auto;">Conversational</span></li>
       </ul>
     </div>
 
     <div class="awards">
       <h3 class="section-title">Awards</h3>
       <ul>
-        <li><i class="fas fa-trophy"></i> Top Student (2014) – M.Phil in Philosophy, NWU</li>
-        <li><i class="fas fa-trophy"></i> Successful Launch: Kuberskool (2020–2023)</li>
+        <li><i class="fas fa-trophy" aria-hidden="true"></i> Top Student (2014) – M.Phil in Philosophy, NWU</li>
+        <li><i class="fas fa-trophy" aria-hidden="true"></i> Successful Launch: Kuberskool (2020–2023)</li>
       </ul>
     </div>
-  </div>
+  </aside>
 
   <!-- MAIN CONTENT -->
-  <div class="main">
+  <section class="main">
     <h1>VICTOR CORREIA</h1>
-    <span class="subtitle">Moodle DevOps Specialist | Front-End Developer | e-Learning Architect</span>
+    <span class="subtitle">Creative Web Developer | Moodle Specialist | Automation Expert</span>
 
     <div class="contact">
       <h3 class="section-title">Contact</h3>
       <ul>
-        <li><i class="fas fa-phone"></i> +27 82 558 5587</li>
-        <li><i class="fas fa-envelope"></i> victor@onsleer.com</li>
-        <li><i class="fas fa-map-marker-alt"></i> 5 Saffier St, Orania, South Africa</li>
-        <li><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/dvcorreia/" target="_blank" style="color:inherit;text-decoration:none;">linkedin.com/in/dvcorreia</a></li>
-        <li><i class="fab fa-github"></i> <a href="https://github.com/dvcorreia1984" target="_blank" style="color:inherit;text-decoration:none;">github.com/dvcorreia1984</a></li>
-        <li><i class="fab fa-twitter"></i> <a href="https://twitter.com/dvictorcorreia" target="_blank" style="color:inherit;text-decoration:none;">@dvictorcorreia</a></li>
+        <li><i class="fas fa-phone" aria-hidden="true"></i> +27 82 558 5587</li>
+        <li><i class="fas fa-envelope" aria-hidden="true"></i> <a href="mailto:victor@onsleer.com">victor@onsleer.com</a></li>
+        <li><i class="fas fa-map-marker-alt" aria-hidden="true"></i> 5 Saffier St, Orania, South Africa</li>
+        <li><i class="fab fa-linkedin" aria-hidden="true"></i> <a href="https://www.linkedin.com/in/dvcorreia/" target="_blank" rel="noopener noreferrer">linkedin.com/in/dvcorreia</a></li>
+        <li><i class="fab fa-github" aria-hidden="true"></i> <a href="https://github.com/dvcorreia1984" target="_blank" rel="noopener noreferrer">github.com/dvcorreia1984</a></li>
+        <li><i class="fab fa-twitter" aria-hidden="true"></i> <a href="https://twitter.com/dvictorcorreia" target="_blank" rel="noopener noreferrer">@dvictorcorreia</a></li>
       </ul>
     </div>
 
@@ -300,9 +329,10 @@
         <div class="exp-desc">
           <ul>
             <li>Custom SCSS overrides in Boost-Union theme to match client branding</li>
-            <li>Docker-based multi-client deployments with HTTPS & backup automation</li>
+            <li>Docker-based multi-client deployments with HTTPS</li>
+            <li>Moodle system administration and configuration</li>
             <li>Screenshot automation using Puppeteer</li>
-            <li>AI plugin experiments for Moodle</li>
+            <li>AI coding with Cursor and Codex</li>
           </ul>
         </div>
       </div>
@@ -379,10 +409,10 @@
       <h3 class="section-title">Featured Projects</h3>
       <div class="exp-desc">
         <ul>
-          <li><a href="https://kuberskool.co.za" target="_blank" class="project-link">kuberskool.co.za</a></li>
-          <li><a href="https://fincents.co.za" target="_blank" class="project-link">Fincents.co.za</a></li>
-          <li><a href="https://lekkerrooibos.co.za" target="_blank" class="project-link">Lekkerrooibos.co.za</a></li>
-          <li><a href="https://gkoranjerivier.co.za" target="_blank" class="project-link">gkoranjerivier.co.za</a></li>
+          <li><a href="https://kuberskool.co.za" target="_blank" rel="noopener noreferrer" class="project-link">kuberskool.co.za</a></li>
+          <li><a href="https://fincents.co.za" target="_blank" rel="noopener noreferrer" class="project-link">Fincents.co.za</a></li>
+          <li><a href="https://lekkerrooibos.co.za" target="_blank" rel="noopener noreferrer" class="project-link">Lekkerrooibos.co.za</a></li>
+          <li><a href="https://gkoranjerivier.co.za" target="_blank" rel="noopener noreferrer" class="project-link">gkoranjerivier.co.za</a></li>
         </ul>
       </div>
     </div>
@@ -390,8 +420,8 @@
     <div style="margin-top:40px; font-size:0.8em; color:#777; text-align:center;">
       Last updated: November 17, 2025 • Designed for web, print, and ATS
     </div>
-  </div>
-</div>
+  </section>
+</main>
 
 </body>
 </html>
